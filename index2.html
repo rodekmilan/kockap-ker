@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kockapóker</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <button class="vissza"><a href="index.html">Vissza</a></button>
+  <div class="container">
+    <h1>Kockapóker</h1>
+    <div class="dice">
+      <div id="die1" class="die">?</div>
+      <div id="die2" class="die">?</div>
+      <div id="die3" class="die">?</div>
+      <div id="die4" class="die">?</div>
+      <div id="die5" class="die">?</div>
+    </div>
+    <button class="dobás" onclick="rollDice()">Dobás</button>
+    <div class="result" id="result"></div>
+  </div>
+
+
+
+
+
+  <script src="script.js"></script>
+
+  <script>function rollDie() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
+  
+  function evaluateRoll(dice) {
+    let counts = {};
+    let maxCount = 0;
+    let maxCountValue = 0;
+  
+
+    for (let die of dice) {
+      counts[die] = (counts[die] || 0) + 1;
+      if (counts[die] > maxCount) {
+        maxCount = counts[die];
+        maxCountValue = die;
+      }
+    }
+  
+    // Kiértékeljük az eredményt
+    switch (maxCount) {
+      case 5:
+        return "Nagy póker";
+      case 4:
+        return "Kis póker";
+      case 3:
+        if (Object.keys(counts).length === 2) {
+          return "Full";
+        }
+        return "Drill";
+      case 2:
+        if (Object.keys(counts).length === 3) {
+          return "Két pár";
+        }
+        return "Pár";
+      default:
+        let sortedDice = [...dice].sort((a, b) => a - b);
+        let isStraight = true;
+        for (let i = 0; i < sortedDice.length - 1; i++) {
+          if (sortedDice[i + 1] - sortedDice[i] !== 1) {
+            isStraight = false;
+            break;
+          }
+        }
+        if (isStraight) {
+          return "Nagy sor";
+        }
+        return "nincs kombináció";
+    }
+  }
+  
+  function rollDice() {
+    let dice = [];
+    dice.push(rollDie());
+    dice.push(rollDie());
+    dice.push(rollDie());
+    dice.push(rollDie());
+    dice.push(rollDie());
+  
+    document.getElementById('die1').innerText = dice[0];
+    document.getElementById('die2').innerText = dice[1];
+    document.getElementById('die3').innerText = dice[2];
+    document.getElementById('die4').innerText = dice[3];
+    document.getElementById('die5').innerText = dice[4];
+
+    let result = evaluateRoll(dice);
+    document.getElementById('result').innerText = "Eredmény: " + result;
+  }
+  </script>
+</body>
+
+
+
+
+</html>
