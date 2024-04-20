@@ -1,0 +1,69 @@
+h1{
+    font-size: 50px;
+}
+.container {
+    text-align: center;
+    margin-top: 14%;
+  }
+  
+  .dice {
+    margin-top: 20px;
+  }
+  
+  .die {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    border: 1px solid #333;
+    margin: 0 5px;
+    font-size: 60px;
+    line-height: 100px;  
+  }
+body{
+    background-image:url(https://media.istockphoto.com/id/1766876145/hu/vektor/p%C3%B3kerasztal-kaszin%C3%B3-h%C3%A1tt%C3%A9r-panor%C3%A1m%C3%A1s-%C3%A1tl%C3%B3s-szerencsej%C3%A1t%C3%A9k-textur%C3%A1lt-anyagtervez%C3%A9s-%C3%A1s%C3%B3val-az.jpg?s=612x612&w=0&k=20&c=W6NqsApXokZyXqMpAP4uod-BZEh11qbn3VZLDVvKe90=);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment:fixed;
+    background-size:cover;
+}
+.vissza{
+    background-color: #868686  ;
+    margin: 10px;
+    padding: 4px;
+    box-shadow: black 3px 3px 8px;
+    border-radius: 5px 5px 5px black;
+    
+}
+a{
+    color: rgb(0, 0, 0);
+    text-decoration:none;
+}
+.dobás{
+        background-color: #075f00;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        margin: 15px 7%;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+        overflow: hidden;
+      } 
+      
+      .dobás:hover {
+        background-color: #a10000; 
+      }
+      
+      .dobás:active {
+        transform: scale(0.95);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        transition: transform 0.2s, box-shadow 0.2s; 
+      }
+      .result{
+        font-size: 25px;
+      }
